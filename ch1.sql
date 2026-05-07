@@ -24,4 +24,4 @@ flush privileges; # 계정권한 반영
 drop user 'cekang2'@'%';
 
 #비밀번호 수정
-alter user 'cekang'@'%' identified by 'abcd';
+alter user 'cekang'@'%' identified by '1234';
