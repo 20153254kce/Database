@@ -7,6 +7,7 @@ create database shop;
 create user 'shop'@'%' identified by '1234';
 grant all privileges on shop.* to 'shop'@'%';
 flush privileges;
+SHOW GRANTS FOR 'cekang'@'%';
 
 #실습 1-2 테이블 생성]
 USE shop; -- DB사용
@@ -166,3 +167,6 @@ on a.orderId = b.custId
 join product as c
 on a.orderProduct = c.prodNo
 where a.orderDate like "2022-07-03%"; 
+
+
+select * from user1;
