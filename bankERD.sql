@@ -19,3 +19,19 @@ insert into bank_transaction (t_a_no, t_dist, t_amount, t_datetime) values
 ('101-11-1002',2,100000,'2023-01-04 13:15:16'),
 ('101-11-1003',3,75000,'2023-01-05 13:15:18'),
 ('101-11-1001',1,150000,'2023-01-05 13:15:28');
+
+select c_no, c_name, a_no, a_item_name, a_balance
+from bank_customer
+join bank_account on a_c_no = c_no;
+
+SELECT * FROM bank_transaction 
+	WHERE t_a_no = (SELECT a_no FROM bank_account 
+							WHERE a_c_no = (SELECT c_no FROM bank_customer 
+														WHERE c_name = '이순신'));
+
+SELECT * 
+	FROM bank_customer AS c
+    JOIN bank_account AS a ON c.c_no = a.a_c_no
+    WHERE c_dist = 1
+    ORDER BY a_balance DESC
+    LIMIT 1;
